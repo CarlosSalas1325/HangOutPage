@@ -1,4 +1,10 @@
 .app {
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
 }

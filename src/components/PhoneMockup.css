@@ -1,38 +1,48 @@
 .phone-mockup {
   transform: perspective(1000px) rotateY(0deg);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .phone-mockup:hover {
-  transform: perspective(1000px) rotateY(-5deg) translateY(-10px);
+  transform: perspective(1000px) rotateY(-5deg) translateY(-15px);
 }
 
 .phone-mockup.phone-left {
-  transform: perspective(1000px) rotateY(15deg) translateX(30px);
+  transform: perspective(1000px) rotateY(12deg) translateX(25px) scale(0.9);
   z-index: 1;
+  opacity: 0.8;
 }
 
 .phone-mockup.phone-center {
-  transform: perspective(1000px) rotateY(0deg) scale(1.1);
+  transform: perspective(1000px) rotateY(0deg) scale(1.05);
   z-index: 3;
 }
 
 .phone-mockup.phone-right {
-  transform: perspective(1000px) rotateY(-15deg) translateX(-30px);
+  transform: perspective(1000px) rotateY(-12deg) translateX(-25px) scale(0.9);
   z-index: 1;
+  opacity: 0.8;
+}
+
+.phone-mockup.phone-left:hover,
+.phone-mockup.phone-right:hover {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(0deg) scale(1);
 }
 
 .phone-frame {
   width: 280px;
   height: 580px;
-  background: #1a1a2e;
-  border-radius: 40px;
+  background: linear-gradient(145deg, #1a1a2e, #0F172A);
+  border-radius: 45px;
   padding: 10px;
   box-shadow: 
-    0 50px 100px rgba(0, 0, 0, 0.3),
-    0 15px 35px rgba(0, 0, 0, 0.2),
-    inset 0 -2px 6px rgba(255, 255, 255, 0.1);
+    0 50px 100px rgba(139, 92, 246, 0.2),
+    0 25px 60px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.5);
   position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .phone-notch {
@@ -102,7 +112,7 @@
 .header-avatar {
   width: 35px;
   height: 35px;
-  background: linear-gradient(135deg, #7B2CBF, #5A189A);
+  background: linear-gradient(135deg, var(--primary-purple, #8B5CF6), var(--primary-pink, #EC4899));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -110,6 +120,7 @@
   color: white;
   font-weight: 600;
   font-size: 14px;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 .screen-header-simple {
@@ -241,8 +252,9 @@
 }
 
 .pill.active {
-  background: linear-gradient(135deg, #7B2CBF, #5A189A);
+  background: linear-gradient(135deg, var(--primary-purple, #8B5CF6), var(--primary-pink, #EC4899));
   color: white;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 /* Events List */
@@ -622,7 +634,7 @@
 .nav-item.add {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #7B2CBF, #5A189A);
+  background: linear-gradient(135deg, var(--primary-purple, #8B5CF6), var(--primary-pink, #EC4899));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -631,7 +643,13 @@
   font-size: 24px;
   font-weight: 300;
   opacity: 1;
-  box-shadow: 0 5px 15px rgba(123, 44, 191, 0.4);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-item.add:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.5);
 }
 
 @media (max-width: 768px) {

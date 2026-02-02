@@ -1,6 +1,7 @@
 .app-showcase {
-  padding: 6rem 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  padding: 8rem 2rem;
+  background: linear-gradient(180deg, var(--bg-light) 0%, white 100%);
+  position: relative;
 }
 
 .showcase-container {
@@ -14,25 +15,29 @@
 }
 
 .showcase-label {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+  border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 50px;
-  color: #667eea;
+  color: var(--primary-purple);
   font-weight: 600;
   font-size: 0.875rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .showcase-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: #1a1a2e;
+  color: var(--text-dark);
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .showcase-title .highlight {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -40,7 +45,7 @@
 
 .showcase-subtitle {
   font-size: 1.125rem;
-  color: #666;
+  color: var(--text-medium);
 }
 
 .showcase-content {
@@ -52,59 +57,78 @@
 .showcase-tabs {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .showcase-tab {
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.5rem;
   border: none;
   background: white;
-  border-radius: 50px;
-  font-size: 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #666;
+  color: var(--text-medium);
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .showcase-tab:hover {
-  color: #667eea;
+  color: var(--primary-purple);
+  border-color: rgba(139, 92, 246, 0.2);
 }
 
 .showcase-tab.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
   color: white;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
 }
 
 .showcase-main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 5rem;
 }
 
 .showcase-phone {
   flex-shrink: 0;
+  position: relative;
+}
+
+.showcase-phone::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: phonePulse 4s ease-in-out infinite;
+}
+
+@keyframes phonePulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.3; }
 }
 
 .showcase-info {
-  max-width: 400px;
+  max-width: 420px;
 }
 
 .showcase-info-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--text-dark);
   margin-bottom: 1rem;
 }
 
 .showcase-info-description {
   font-size: 1.1rem;
-  color: #666;
-  line-height: 1.7;
+  color: var(--text-medium);
+  line-height: 1.8;
   margin-bottom: 2rem;
 }
 
@@ -117,27 +141,38 @@
 .showcase-feature-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   font-size: 1rem;
-  color: #333;
+  color: var(--text-dark);
+  padding: 0.75rem 1rem;
+  background: rgba(139, 92, 246, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.showcase-feature-item:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: translateX(5px);
 }
 
 .feature-check {
-  width: 24px;
-  height: 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
+  flex-shrink: 0;
 }
 
 @media (max-width: 968px) {
   .showcase-main {
     flex-direction: column;
     text-align: center;
+    gap: 3rem;
   }
   
   .showcase-info {
@@ -146,5 +181,25 @@
   
   .showcase-features-list {
     align-items: center;
+  }
+  
+  .showcase-feature-item {
+    justify-content: center;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-showcase {
+    padding: 5rem 1rem;
+  }
+  
+  .showcase-tabs {
+    gap: 0.5rem;
+  }
+  
+  .showcase-tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
   }
 }
