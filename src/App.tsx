@@ -4,11 +4,10 @@ import Features from './components/Features'
 import AppShowcase from './components/AppShowcase'
 import Download from './components/Download'
 import Footer from './components/Footer'
-import './App.css'
 
 function App() {
   return (
-    <div className="app">
+    <div className="min-h-screen overflow-x-hidden relative">
       <Navbar />
       <Hero />
       <Features />
