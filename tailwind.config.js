@@ -7,44 +7,57 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary-purple': '#A855F7',
-        'primary-purple-dark': '#9333EA',
-        'primary-purple-light': '#C084FC',
-        'primary-yellow': '#FBBF24',
-        'primary-yellow-dark': '#F59E0B',
-        'primary-pink': '#F472B6',
-        'primary-cyan': '#22D3EE',
-        'primary-green': '#34D399',
-        'primary-orange': '#FB923C',
-        'text-dark': '#0F172A',
-        'text-medium': '#475569',
-        'text-light': '#94A3B8',
-        'bg-dark': '#0A0118',
-        'bg-darker': '#050010',
-        'bg-light': '#F8FAFC',
+        'hangout': {
+          50: '#FFF1F3',
+          100: '#FFE0E6',
+          200: '#FFC6D3',
+          300: '#FF9DB3',
+          400: '#FF6B8A',
+          500: '#E91E63',
+          600: '#D81B5C',
+          700: '#B5144D',
+          800: '#961447',
+          900: '#7F1542',
+        },
+        'gray': {
+          50: '#FAFAFA',
+          100: '#F5F5F5',
+          200: '#EEEEEE',
+          300: '#E0E0E0',
+          400: '#BDBDBD',
+          500: '#9E9E9E',
+          600: '#757575',
+          700: '#616161',
+          800: '#424242',
+          900: '#1A1A2E',
+        }
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
-      backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #A855F7 0%, #F472B6 50%, #22D3EE 100%)',
-        'gradient-dark': 'linear-gradient(135deg, #0A0118 0%, #1E0B3E 50%, #3B0764 100%)',
-        'gradient-mesh': 'radial-gradient(at 40% 20%, rgba(168, 85, 247, 0.4) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(244, 114, 182, 0.35) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(34, 211, 238, 0.3) 0px, transparent 50%), radial-gradient(at 80% 50%, rgba(251, 191, 36, 0.25) 0px, transparent 50%), radial-gradient(at 0% 100%, rgba(52, 211, 153, 0.3) 0px, transparent 50%)',
-      },
       keyframes: {
-        gradientText: {
-          '0%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-          '100%': { backgroundPosition: '0% 50%' },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        pulseGlow: {
-          '0%, 100%': { opacity: '0.6', transform: 'translate(-50%, -50%) scale(1)' },
-          '50%': { opacity: '0.9', transform: 'translate(-50%, -50%) scale(1.2)' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        slideIn: {
+          '0%': { opacity: '0', transform: 'translateX(-20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        pulse: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' },
         },
       },
       animation: {
-        gradientText: 'gradientText 3s ease infinite',
-        pulseGlow: 'pulseGlow 4s ease-in-out infinite',
+        fadeInUp: 'fadeInUp 0.8s ease-out',
+        float: 'float 6s ease-in-out infinite',
+        slideIn: 'slideIn 0.6s ease-out',
+        pulse: 'pulse 3s ease-in-out infinite',
       },
     },
   },

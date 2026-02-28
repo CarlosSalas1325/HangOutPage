@@ -1,70 +1,69 @@
-import { useState, useEffect } from 'react';
-import logo from '../assets/logo.png';
+import { useState, useEffect } from 'react'
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[1000] py-2 transition-all duration-[400ms]">
-      <div className={`absolute inset-0 backdrop-blur-[20px] border-b transition-all duration-[400ms] ${
-        isScrolled 
-          ? 'bg-white/95 border-black/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)]' 
-          : 'bg-white/5 border-white/10'
-      }`} />
-      
-      <div className="max-w-[1200px] mx-auto px-8 py-3 flex items-center justify-between relative z-10">
-        <div className="flex items-center transition-transform duration-300 hover:scale-105">
-          <img 
-            src={logo} 
-            alt="Hangout!" 
-            className="h-[45px] w-auto object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.2)] transition-all duration-300 hover:drop-shadow-[0_6px_20px_rgba(139,92,246,0.5)]" 
-          />
-        </div>
-        
-        <button 
-          className={`md:hidden flex flex-col gap-1.5 p-2 z-50 ${isMobileMenuOpen ? 'fixed right-8' : ''}`}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Menu"
-        >
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </button>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/90 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-xl bg-hangout-500 flex items-center justify-center">
+            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </div>
+          <span className="text-xl font-bold text-gray-900">DoPlans</span>
+        </a>
 
-        <ul className={`flex list-none gap-8 m-0 p-0 max-md:fixed max-md:inset-0 max-md:bg-bg-dark/95 max-md:backdrop-blur-2xl max-md:flex-col max-md:items-center max-md:justify-center max-md:transition-all max-md:duration-300 ${
-          isMobileMenuOpen ? 'max-md:opacity-100 max-md:visible' : 'max-md:opacity-0 max-md:invisible'
-        }`}>
-          <li><a href="#inicio" onClick={() => setIsMobileMenuOpen(false)} className={`font-semibold text-[1.15rem] tracking-wide relative py-2 transition-all duration-300 hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary-purple after:to-primary-pink after:rounded after:transition-all after:duration-300 hover:after:w-full ${
-            isScrolled ? 'text-text-dark hover:text-primary-purple' : 'text-white'
-          }`}>Inicio</a></li>
-          <li><a href="#caracteristicas" onClick={() => setIsMobileMenuOpen(false)} className={`font-semibold text-[1.15rem] tracking-wide relative py-2 transition-all duration-300 hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary-purple after:to-primary-pink after:rounded after:transition-all after:duration-300 hover:after:w-full ${
-            isScrolled ? 'text-text-dark hover:text-primary-purple' : 'text-white'
-          }`}>Características</a></li>
-          <li><a href="#app" onClick={() => setIsMobileMenuOpen(false)} className={`font-semibold text-[1.15rem] tracking-wide relative py-2 transition-all duration-300 hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary-purple after:to-primary-pink after:rounded after:transition-all after:duration-300 hover:after:w-full ${
-            isScrolled ? 'text-text-dark hover:text-primary-purple' : 'text-white'
-          }`}>La App</a></li>
-          <li><a href="#descargar" onClick={() => setIsMobileMenuOpen(false)} className={`font-semibold text-[1.15rem] tracking-wide relative py-2 transition-all duration-300 hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-primary-purple after:to-primary-pink after:rounded after:transition-all after:duration-300 hover:after:w-full ${
-            isScrolled ? 'text-text-dark hover:text-primary-purple' : 'text-white'
-          }`}>Descargar</a></li>
-        </ul>
-        
-        <button className="flex items-center gap-2 bg-gradient-to-r from-primary-purple via-primary-pink to-primary-cyan text-white px-6 py-3 rounded-full font-bold text-[0.9rem] transition-all duration-300 shadow-[0_4px_20px_rgba(168,85,247,0.5)] overflow-hidden relative group hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(168,85,247,0.7)] hover:scale-105 max-md:hidden">
-          <span className="absolute inset-0 bg-gradient-to-r from-primary-cyan via-primary-pink to-primary-purple opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          <span className="relative z-10">Únete Ahora</span>
-          <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">→</span>
+        <div className="hidden md:flex items-center gap-8">
+          <a href="#features" className="text-sm font-medium text-gray-600 hover:text-hangout-500 transition-colors">Funciones</a>
+          <a href="#screens" className="text-sm font-medium text-gray-600 hover:text-hangout-500 transition-colors">La App</a>
+          <a href="#how" className="text-sm font-medium text-gray-600 hover:text-hangout-500 transition-colors">Cómo funciona</a>
+          <a href="#organizers" className="text-sm font-medium text-gray-600 hover:text-hangout-500 transition-colors">Organizadores</a>
+        </div>
+
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="#download"
+            className="px-5 py-2.5 rounded-full bg-hangout-500 text-white text-sm font-semibold hover:bg-hangout-600 transition-colors shadow-lg shadow-hangout-500/25"
+          >
+            Descargar gratis
+          </a>
+        </div>
+
+        <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
+          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {mobileOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
         </button>
       </div>
-    </nav>
-  );
-};
 
-export default Navbar;
+      {mobileOpen && (
+        <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-100 px-6 py-4 space-y-3">
+          <a href="#features" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setMobileOpen(false)}>Funciones</a>
+          <a href="#screens" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setMobileOpen(false)}>La App</a>
+          <a href="#how" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setMobileOpen(false)}>Cómo funciona</a>
+          <a href="#organizers" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setMobileOpen(false)}>Organizadores</a>
+          <a href="#download" className="block w-full text-center px-5 py-2.5 rounded-full bg-hangout-500 text-white text-sm font-semibold" onClick={() => setMobileOpen(false)}>
+            Descargar gratis
+          </a>
+        </div>
+      )}
+    </nav>
+  )
+}

@@ -1,65 +1,101 @@
-const Features = () => {
-  const features = [
-    {
-      icon: '🎉',
-      title: 'Crea Eventos',
-      description: 'Organiza planes increíbles con tus amigos. Desde una cena hasta una fiesta épica.',
-    },
-    {
-      icon: '🔍',
-      title: 'Descubre',
-      description: 'Encuentra eventos cerca de ti que coincidan con tus intereses y pasiones.',
-    },
-    {
-      icon: '👥',
-      title: 'Conecta',
-      description: 'Conoce gente nueva con gustos similares y amplía tu círculo social.',
-    },
-    {
-      icon: '💬',
-      title: 'Chat Grupal',
-      description: 'Comunícate fácilmente con tu grupo para coordinar todos los detalles.',
-    },
-    {
-      icon: '📍',
-      title: 'Ubicación',
-      description: 'Comparte tu ubicación en tiempo real para que nadie se pierda.',
-    },
-    {
-      icon: '🔔',
-      title: 'Notificaciones',
-      description: 'Recibe alertas de nuevos eventos y mensajes de tus amigos.',
-    },
-  ];
+const features = [
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+    title: 'Eventos cercanos',
+    description: 'Descubre lo que pasa a tu alrededor. Conciertos, festivales, talleres y más, todo filtrado por ubicación y tus intereses.',
+    color: 'bg-hangout-50 text-hangout-500',
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    ),
+    title: 'Personalizado para ti',
+    description: 'Selecciona tus intereses — música, comida, arte, tecnología — y recibe recomendaciones que realmente te importan.',
+    color: 'bg-rose-50 text-rose-500',
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
+    title: 'Comunidad social',
+    description: 'Comparte tus experiencias, lee reseñas reales de otros asistentes y conecta con personas con tu mismos gustos.',
+    color: 'bg-violet-50 text-violet-500',
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+      </svg>
+    ),
+    title: 'Mapa interactivo',
+    description: 'Visualiza todos los eventos en un mapa con precios y detalles. Encuentra lo más cercano o explora otras zonas de tu ciudad.',
+    color: 'bg-emerald-50 text-emerald-500',
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
+    title: 'Panel organizador',
+    description: 'Crea y gestiona tus propios eventos. Ve estadísticas en tiempo real: vistas, asistentes y tasa de asistencia.',
+    color: 'bg-amber-50 text-amber-500',
+  },
+  {
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      </svg>
+    ),
+    title: 'Experiencia móvil',
+    description: 'Diseñada para tu celular. Rápida, intuitiva y hermosa. Disponible para iOS y Android, completamente gratis.',
+    color: 'bg-sky-50 text-sky-500',
+  },
+]
 
+export default function Features() {
   return (
-    <section className="py-24 px-8 bg-gradient-to-br from-white via-purple-50/30 to-cyan-50/30 relative overflow-hidden" id="caracteristicas">
-      <div className="max-w-[1200px] mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <span className="inline-block px-5 py-2 bg-gradient-to-r from-primary-purple/15 to-primary-cyan/15 text-primary-purple border-2 border-primary-purple/20 text-sm font-bold rounded-full mb-4 tracking-wide uppercase shadow-lg">Características</span>
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-text-dark leading-[1.2] mb-4">
-            Todo lo que necesitas para <span className="bg-gradient-to-r from-primary-purple via-primary-pink to-primary-cyan bg-clip-text text-transparent">pasarla bien</span>
+    <section id="features" className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-hangout-50 text-hangout-500 text-sm font-semibold mb-4">
+            Funciones
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-5">
+            Todo lo que necesitas para{' '}
+            <span className="text-gradient">vivir más</span>
           </h2>
-          <p className="text-lg text-text-medium max-w-2xl mx-auto">
-            HANG OUT te ofrece todas las herramientas para organizar planes increíbles
+          <p className="text-lg text-gray-500 leading-relaxed">
+            DoPlans reúne descubrimiento de eventos, comunidad social y herramientas para organizadores en una sola app.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="p-8 bg-white/80 backdrop-blur-sm rounded-3xl border-2 border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(168,85,247,0.2)] hover:border-primary-purple/30 hover:scale-105 group"
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className="group p-8 rounded-3xl border border-gray-100 hover:border-hangout-100 card-hover bg-white hover:bg-hangout-50/30"
             >
-              <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-primary-purple/20 via-primary-pink/20 to-primary-cyan/20 rounded-2xl text-4xl mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 shadow-lg">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-text-dark mb-3">{feature.title}</h3>
-              <p className="text-text-medium leading-relaxed">{feature.description}</p>
+              <div className={`w-14 h-14 rounded-2xl ${f.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}>
+                {f.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">{f.title}</h3>
+              <p className="text-gray-500 leading-relaxed">{f.description}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
-};
-
-export default Features;
+  )
+}
